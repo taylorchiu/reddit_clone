@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pry'
 gem 'devise'
 gem 'pg'
 gem 'better_errors'
