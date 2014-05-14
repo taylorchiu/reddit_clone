@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
 
 	def show
 		@comment = @post.comments.find(params[:id])
+		@user = current_user
 	end
 
 	def destroy

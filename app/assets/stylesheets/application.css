@@ -59,12 +59,20 @@ p.navbar-text {
 
 
 div.container {
+}
 
-
+h4 {
+	color: blue;
 }
 
 p.commentby {
-	margin: 20px;
+	margin-top: 7px;
+	margin-left: 20px;
+}
+
+p.commentbody {
+	margin-left: 20px;
+	color: blue;
 }
 
 div.buttons {
