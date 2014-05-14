@@ -1,1 +1,8 @@
 <h1>comment details</h1>
+<br>
+<h2>Comment #<%= @comment.id %> on post "<%= @post.title %>":</h2>
+
+<%= @comment.body %>
+
+<%= link_to "delete", [@post, @comment], method: :delete, data: {confirm: "Are you sure?"} %> <br>
+<%= link_to "Back to all Posts", posts_path %>

@@ -6,26 +6,42 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
+    <div id="header">
+      <p class="topheader">
+        MY SUBREDDITS FRONT-ALL-RANDOM | FUNNY-PICS-ASKREDDIT-IAMA-NEWS-TODAYILEARNED-WORLDNEWS-GIFS-VIDEOS-AWW-EXPLAINLIKEIMFIVE-MUSIC-MOVIES-SPORTS- MORE »
+      </p>
+      <img src="http://newsbtc.com/wp-content/uploads/2013/12/Reddit-logo-small.jpg" id="logo"/>
+      <p>
+      </p>
+      <p class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <% end %>
+      </p>
 
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-<%= yield %>
-
-</body>
+      <ul id="tabmenu">
+        <li><%=link_to "hot", root_path %></li>
+        <li><%=link_to "new", root_path %></li>
+        <li><%=link_to "rising", root_path %></li>
+      </ul>
+    
+      </div>
+    <div class="flash_errors"
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
