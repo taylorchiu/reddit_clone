@@ -1,0 +1,7 @@
+HIIII ITs our POSTS INDEX AKA HOMEPAGE!!!!
+
+
+
+<% @posts.each do |post| %>
+<%= link_to post.title, post_comments_path(post.id) %>
+<% end %>
