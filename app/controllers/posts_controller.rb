@@ -2,10 +2,10 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+		@user = current_user
 	end
 
 	def new
-binding.pry
 		@post = Post.new
 	end
 
@@ -16,6 +16,6 @@ binding.pry
 	
 	private
 		def post_params
-			params.require[:post].permit[:title, :body, :comments_attributes[:body]]
+			params[:post].permit(:title, :body, :comments_attributes=>[:body])
 		end
 end
